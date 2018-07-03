@@ -36,3 +36,4 @@ projects
 .yarnrc
 .vuerc
 .viminfo
+.zcompdump*
