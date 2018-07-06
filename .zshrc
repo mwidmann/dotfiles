@@ -2,8 +2,10 @@ export DOCKER_HOST=tcp://127.0.0.1:2375
 export ZSH=/home/mwidmann/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 plugins=(
-  git
+	git
 )
+
+export PATH=~/.composer/vendor/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 eval `keychain --agents ssh --eval id_rsa id_dsa`
@@ -13,6 +15,13 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export EDITOR=vim
 
 alias hosts="sudo vim /etc/hosts"
+# adds the provided entry to both wsl and windows hosts file
+function vhost() {
+	echo "127.0.0.1 $1" >> /etc/hosts
+	echo "127.0.0.1 $1" >> /c/Windows/System32/drivers/etc/hosts
+}
+
+
 alias grep='grep --color=auto'
 alias zwget='wget --header="accept-encoding: gzip"'
 alias mongod='mongod --config /usr/local/etc/mongod.conf'

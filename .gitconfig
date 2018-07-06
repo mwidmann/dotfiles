@@ -1,3 +1,5 @@
 [user]
 	email = martin.widmann@russmedia.com
 	name = Martin Widmann
+[core]
+	filemode = false
