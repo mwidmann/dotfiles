@@ -81,3 +81,19 @@ ovbc() {
 
 alias open="cmd.exe /c start"
 alias weather="curl wttr.in/götzis"
+
+
+## tmux stuff
+
+alias tmx="tmux new -s"
+alias tmxa="tmux attach -t"
+alias tmxl="tmux ls"
+alias tmxc="vim ~/.tmux.conf"
+alias tmxk="tmux kill-session -t"
+alias tmxwindows="tmux list-windows"
+
+## tmuxinator
+alias tmxn="tmuxinator new"
+alias tmxo="tmuxinator open"
+alias tmxs="tmuxinator start"
+

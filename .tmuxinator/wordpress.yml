@@ -1,0 +1,12 @@
+# ~/.tmuxinator/tee.yml
+
+name: wordpress
+root: ~/projects/wordpress-webpapers
+
+windows:
+  - tee:
+     layout: main-vertical 
+     panes:
+       - # 
+       - # 
+                        
