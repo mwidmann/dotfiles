@@ -1,18 +1,12 @@
 export DOCKER_HOST=tcp://127.0.0.1:2375
-export ZSH=/home/mwidmann/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-plugins=(
-	git
-)
+export PATH=~/.composer/vendor/bin:~/go/bin:$PATH
 
-export PATH=~/.composer/vendor/bin:$PATH
-
-source $ZSH/oh-my-zsh.sh
 eval `keychain --agents ssh --eval id_rsa id_dsa`
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 export EDITOR=vim
+export GOPATH="/home/mwidmann/go"
 
 alias hosts="sudo vim /etc/hosts"
 # adds the provided entry to both wsl and windows hosts file
@@ -79,12 +73,10 @@ ovbc() {
 	convert -quality 90 -resize x250 partpage_$2.jpg partpage_$2_small.jpg
 }
 
-alias open="cmd.exe /c start"
 alias weather="curl wttr.in/götzis"
 
 
 ## tmux stuff
-
 alias tmx="tmux new -s"
 alias tmxa="tmux attach -t"
 alias tmxl="tmux ls"
@@ -97,3 +89,9 @@ alias tmxn="tmuxinator new"
 alias tmxo="tmuxinator open"
 alias tmxs="tmuxinator start"
 
+## windows 
+alias docker-compose="docker-compose.exe"
+alias open="cmd.exe /c start"
+alias code="code-insiders"
+
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
