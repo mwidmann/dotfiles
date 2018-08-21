@@ -6,6 +6,7 @@ eval `keychain --agents ssh --eval id_rsa id_dsa`
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 export EDITOR=vim
+export VISUAL=$EDITOR
 export GOPATH="/home/mwidmann/go"
 
 alias hosts="sudo vim /etc/hosts"

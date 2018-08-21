@@ -3,3 +3,4 @@
 	name = Martin Widmann
 [core]
 	filemode = false
+	eol = lf
