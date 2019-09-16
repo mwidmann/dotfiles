@@ -1,5 +1,6 @@
 export DOCKER_HOST=tcp://127.0.0.1:2375
 export PATH=~/.composer/vendor/bin:~/go/bin:$PATH
+export PATH=/home/mwidmann/anaconda2/bin:$PATH
 
 eval `keychain --agents ssh --eval id_rsa id_dsa`
 
@@ -8,6 +9,7 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export EDITOR=vim
 export VISUAL=$EDITOR
 export GOPATH="/home/mwidmann/go"
+export PHP_IDE_CONFIG="serverName=local"
 
 alias hosts="sudo vim /etc/hosts"
 # adds the provided entry to both wsl and windows hosts file
@@ -25,7 +27,6 @@ alias dni_webserver="ssh -ldevel 172.24.1.13"
 alias dni_node="ssh -ldevel 172.24.1.12"
 alias dni_db="ssh -ldevel 172.24.1.11"
 alias dni_redis="ssh -ldevel 172.24.1.10"
-alias epapercron="ssh root@172.24.1.17"
 
 # servers
 alias tpappsu01='ssh -l devel tpappsu01.tele.net'
@@ -39,15 +40,13 @@ alias dcapps='ssh -ldigicol dc-apps01'
 alias epaper=dc
 alias nzzstore="ssh -l devel rms-store01.tele.net"
 alias rmsaasu01="ssh -l devel rmsaasu01.tele.net"
+#alias epapercron="ssh root@172.24.1.17"
+alias epapercron="ssh root@194.208.10.17"
+alias gitlab="ssh root@gitlab.russmedia.com"
+alias jenkins="ssh root@194.208.10.30"
 
 # nnp
-alias nnpmadb1="ssh -l devel mhnnp-madb01.tele.net"
-alias nnpsldb1="ssh -l devel mhnnp-sldb01.tele.net"
-alias nnpstoreu1="ssh -l devel mhnnp-storeu01.tele.net"
-alias nnpnode1="ssh -l devel mhnnp-node01.tele.net"
-alias nnpnode2="ssh -l devel mhnnp-node02.tele.net"
-alias nnpweb1="ssh -l devel mhnnp-web01.tele.net"
-alias nnpstaging1="ssh -l devel mhnnp-stagingu01.tele.net"
+alias nnpstore="ssh -l devel rmnnp-store01.tele.net"
 
 # android debugging
 alias debugandroid="adb forward tcp:9222 localabstract:chrome_devtools_remote"
@@ -93,6 +92,19 @@ alias tmxs="tmuxinator start"
 ## windows 
 alias docker-compose="docker-compose.exe"
 alias open="cmd.exe /c start"
-alias code="code-insiders"
+alias code="/c/Users/mwidmann/AppData/Local/Programs/Microsoft\ VS\ Code/bin/code"
+alias start-docker="docker restart webserver_webserver_1 && docker restart webserver_mysql_1"
+alias xdbon="sed -i.bak 's/#zend_extension/zend_extension/g' ~/projects/dockerfiles/webserver/php/docker-php-ext-xdebug.ini && docker restart webserver_webserver_1"
+alias xdboff="sed -i.bak 's/zend_extension/#zend_extension/g' ~/projects/dockerfiles/webserver/php/docker-php-ext-xdebug.ini && docker exec -it webserver_webserver_1 apachectl graceful"
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+alias node='unalias node ; unalias npm ; nvm use default ; node $@'
+alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'
+
+__git_files () { 
+    _wanted files expl 'local files' _files     
+}

@@ -1,0 +1,13 @@
+# ~/.tmuxinator/nordstern.yml
+
+name: nordstern
+root: ~/projects/vn-nordstern
+
+windows:
+  - tee:
+     layout: ba92,130x26,0,0{65x26,0,0,0,64x26,66,0[64x13,66,0,1,64x12,66,14,2]}
+     panes:
+       - npm run dev 
+       - cd ../wordpress-webpapers/wp-content/themes/nordstern && npm run dev 
+       - cd ../wordpress-webpapers/wp-content/plugins/russmedia-nordstern-gutenberg && npm run dev
+                        
